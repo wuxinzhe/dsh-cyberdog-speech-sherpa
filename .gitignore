@@ -1,0 +1,17 @@
+# 依赖
+node_modules/
+*.tgz
+
+# 系统
+.DS_Store
+Thumbs.db
+
+# 编辑器
+.vscode/
+.idea/
+
+# 日志
+*.log
+
+# 构建中间产物（client/dist 保留——git 安装不跑 build，需提交构建产物）
+scripts/*.tmp

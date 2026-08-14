@@ -1,0 +1,8 @@
+# DeepSeek Harness bundle patch：dsh plugin add 安装本插件时由 dsh 加载。
+# name 用包名（exports["."] 指向 index.mjs），client-modules 可解析包根并 serve client bundle。
+- insert:
+    - id: speech-sherpa
+      name: dsh-speech-sherpa
+      config:
+        voiceRate: 1.0
+        sid: 88

@@ -1,0 +1,45 @@
+{
+  "name": "dsh-speech-sherpa",
+  "version": "0.1.0",
+  "description": "DeepSeek Harness 本地离线语音插件：STT 语音识别 + TTS 语音合成 + WebUI 按住说话（Sherpa-ONNX）",
+  "license": "MIT",
+  "main": "./index.mjs",
+  "exports": {
+    ".": "./index.mjs",
+    "./client": "./client/dist/client.js",
+    "./package.json": "./package.json"
+  },
+  "files": [
+    "index.mjs",
+    "remote.mjs",
+    "http-body.mjs",
+    "core",
+    "client",
+    "cordis.bundle.yml",
+    "cordis.patch.yml"
+  ],
+  "scripts": {
+    "build:client": "node scripts/build-client.mjs",
+    "verify": "node scripts/verify-dsh.mjs"
+  },
+  "dependencies": {
+    "sherpa-onnx-node": "1.13.4"
+  },
+  "overrides": {
+    "sherpa-onnx-darwin-arm64": "1.13.4",
+    "sherpa-onnx-darwin-x64": "1.13.4",
+    "sherpa-onnx-linux-arm64": "1.13.4",
+    "sherpa-onnx-linux-x64": "1.13.4",
+    "sherpa-onnx-win-x64": "1.13.4",
+    "sherpa-onnx-win-ia32": "1.13.4"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.bundle.yml"
+    },
+    "client": {
+      "platform": "web",
+      "inject": ["slots", "sessions", "connection", "remote", "locale"]
+    }
+  }
+}
