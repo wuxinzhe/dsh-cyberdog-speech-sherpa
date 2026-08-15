@@ -1,4 +1,4 @@
-# dsh-speech-sherpa
+# dsh-cyberdog-speech-sherpa
 
 DeepSeek Harness（dsh）本地离线语音插件，基于 [Sherpa-ONNX](https://github.com/k2-fsa/sherpa-onnx)。
 
