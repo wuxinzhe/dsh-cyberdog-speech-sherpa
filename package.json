@@ -25,6 +25,9 @@
   "dependencies": {
     "sherpa-onnx-node": "1.13.4"
   },
+  "devDependencies": {
+    "esbuild": "^0.28.1"
+  },
   "overrides": {
     "sherpa-onnx-darwin-arm64": "1.13.4",
     "sherpa-onnx-darwin-x64": "1.13.4",

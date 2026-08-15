@@ -1,4 +1,4 @@
-# dsh-speech-sherpa
+# dsh-cyberdog-speech-sherpa
 
 DeepSeek Harness（dsh）本地离线语音插件，基于 [Sherpa-ONNX](https://github.com/k2-fsa/sherpa-onnx)。
 
@@ -10,7 +10,7 @@ DeepSeek Harness（dsh）本地离线语音插件，基于 [Sherpa-ONNX](https:/
 ## 架构
 
 ```
-dsh-speech-sherpa/
+dsh-cyberdog-speech-sherpa/
 ├── index.mjs            # host 插件（Cordis）：注册 3 个工具 + HTTP 路由
 ├── remote.mjs           # HTTP 路由（/speech-api/*，浏览器录音按钮直调）
 ├── http-body.mjs        # HTTP 请求体读取
@@ -32,15 +32,18 @@ dsh-speech-sherpa/
 
 ## 安装
 
+从 npm registry 安装（已发布）：
+
 ```sh
-dsh plugin --profile <name> add /path/to/dsh-speech-sherpa
-# 或从 git：dsh plugin --profile <name> add github:you/dsh-speech-sherpa
+dsh plugin --profile <name> add dsh-cyberdog-speech-sherpa
+# 或指定版本：dsh plugin --profile <name> add dsh-cyberdog-speech-sherpa@0.1.0
+# 或从 git：dsh plugin --profile <name> add github:wuxinzhe/dsh-cyberdog-speech-sherpa
 ```
 
 开发期用 `--patch`：
 ```sh
 cd <deepseek-harness 仓库>
-pnpm dsh --profile web --patch C:\Users\Administrator\Documents\dsh-speech-sherpa\cordis.patch.yml --port 3099
+pnpm dsh --profile web --patch C:\Users\Administrator\Documents\dsh-cyberdog-speech-sherpa\cordis.patch.yml --port 3099
 ```
 
 ## 工具
@@ -100,6 +103,6 @@ node scripts/build-client.mjs # 重建 client bundle
 
 ## 发布
 
-- 遵循 dsh 插件命名惯例：npm 包名 `dsh-` 前缀（本包 `dsh-speech-sherpa`）
+- 遵循 dsh 插件命名惯例：npm 包名 `dsh-` 前缀（本包 `dsh-cyberdog-speech-sherpa`，已发布到 npm）
 - GitHub 仓库加 [`dsh-plugin`](https://github.com/topics/dsh-plugin) 话题便于被发现
 - 依赖 `@deepseek-ai/*` 时注意：`@deepseek-ai/dsh-tools` 的 npm `latest` tag 是过期线，用 `next` tag；本插件零 `@deepseek-ai` 运行时依赖（裸 JSON ToolDefinition）已避开

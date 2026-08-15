@@ -17,15 +17,11 @@ import { mkdirSync, writeFileSync } from 'node:fs'
 const require = createRequire(import.meta.url)
 const root = join(dirname(fileURLToPath(import.meta.url)), '..')
 
-// dsh 仓库路径（找 esbuild）：环境变量或探测
-const dshPath = process.env.DSH_HARNESS_PATH
-  || 'C:/Users/Administrator/Documents/deepseek-harness'
-
-// 定位 esbuild（dsh 的 .pnpm 里）
+// 定位 esbuild：优先本地 node_modules（npm 安装，CI 可用），再退回 dsh 仓库
 function findEsbuild() {
   const candidates = [
-    join(dshPath, 'node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild'),
-    join(dshPath, 'node_modules/esbuild'),
+    join(root, 'node_modules/esbuild'),
+    join(root, 'node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild'),
   ]
   for (const c of candidates) {
     try {
@@ -33,7 +29,19 @@ function findEsbuild() {
       return c
     } catch { /* try next */ }
   }
-  throw new Error(`无法定位 esbuild（${dshPath}）——请设 DSH_HARNESS_PATH 指向 deepseek-harness 仓库`)
+  // 兼容旧环境：dsh 仓库的 .pnpm
+  const dshPath = process.env.DSH_HARNESS_PATH || 'C:/Users/Administrator/Documents/deepseek-harness'
+  const dshCandidates = [
+    join(dshPath, 'node_modules/.pnpm/esbuild@0.28.1/node_modules/esbuild'),
+    join(dshPath, 'node_modules/esbuild'),
+  ]
+  for (const c of dshCandidates) {
+    try {
+      require(c)
+      return c
+    } catch { /* try next */ }
+  }
+  throw new Error('无法定位 esbuild——请先在项目内 npm i -D esbuild')
 }
 
 const esbuild = require(findEsbuild())
