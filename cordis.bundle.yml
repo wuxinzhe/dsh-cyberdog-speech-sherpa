@@ -2,7 +2,7 @@
 # name 用包名（exports["."] 指向 index.mjs），client-modules 可解析包根并 serve client bundle。
 - insert:
     - id: speech-sherpa
-      name: dsh-speech-sherpa
+      name: dsh-cyberdog-speech-sherpa
       config:
         voiceRate: 1.0
         sid: 88

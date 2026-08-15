@@ -3,7 +3,7 @@
 # 用法：cd <deepseek-harness 仓库> && pnpm dsh --profile web --patch <本文件绝对路径> --port 3099
 - insert:
     - id: speech-sherpa
-      name: file:///C:/Users/Administrator/Documents/dsh-speech-sherpa/index.mjs
+      name: file:///C:/Users/Administrator/Documents/dsh-cyberdog-speech-sherpa/index.mjs
       config:
         voiceRate: 1.0
         sid: 88

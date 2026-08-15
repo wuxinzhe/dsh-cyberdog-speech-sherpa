@@ -1,5 +1,5 @@
 {
-  "name": "dsh-speech-sherpa",
+  "name": "dsh-cyberdog-speech-sherpa",
   "version": "0.1.0",
   "description": "DeepSeek Harness 本地离线语音插件：STT 语音识别 + TTS 语音合成 + WebUI 按住说话（Sherpa-ONNX）",
   "license": "MIT",

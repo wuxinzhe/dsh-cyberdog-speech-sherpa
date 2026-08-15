@@ -1,4 +1,4 @@
-window.__ModuleLoader__.load({ id: "dsh-speech-sherpa", factory: (require) => {
+window.__ModuleLoader__.load({ id: "dsh-cyberdog-speech-sherpa", factory: (require) => {
 var module = { exports: {} }; var exports = module.exports;
 var __create = Object.create;
 var __defProp = Object.defineProperty;
@@ -37,7 +37,7 @@ __export(index_exports, {
   name: () => name
 });
 module.exports = __toCommonJS(index_exports);
-var React = __toESM(require("react"), 1);
+var React = __toESM(require("react"));
 var name = "speech-sherpa-client";
 var inject = ["slots"];
 var MAX_SECONDS = 120;

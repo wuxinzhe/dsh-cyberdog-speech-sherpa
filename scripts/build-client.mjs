@@ -37,7 +37,7 @@ function findEsbuild() {
 }
 
 const esbuild = require(findEsbuild())
-const ID = 'dsh-speech-sherpa'
+const ID = 'dsh-cyberdog-speech-sherpa'
 
 // seed 词 externals（与 dsh PLATFORM_MODULES 一致）
 const EXTERNALS = [
